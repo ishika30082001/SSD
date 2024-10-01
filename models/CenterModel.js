@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 
 const CenterSchema = new mongoose.Schema({
   centerId: {
-    type: Number,
+    type: String,
     required: true,
   },
   name: {
@@ -39,7 +39,9 @@ CenterSchema.pre("save", async function (next) {
   //if password phle se hash hai to modiefied nhi krenge
   if (!this.isModified("password")) {
     return next();
-  }
+  } 
+  // const salt = await bcrypt.genSalt(10)
+  // this.password = await bcrypt.hash(this.password, salt);
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
@@ -56,4 +58,4 @@ CenterSchema.methods.comparePassword = async function(EnteredPassword)  {
   return await bcrypt.compare(EnteredPassword, this.password)
 };
 
-export const CenterModel = mongoose.model("center", CenterSchema);
+export const CenterModel = mongoose.model("center", CenterSchema);  
