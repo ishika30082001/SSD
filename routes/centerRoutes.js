@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post("/register", CenterRegisterUser);
 router.post("/center/login", CenterLogin);
+// router.get("/");
 
 
 export default router;
