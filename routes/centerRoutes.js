@@ -3,5 +3,7 @@ import { CenterLogin, CenterRegisterUser } from "../controller/FrontController.j
 const router = express.Router();
 
 router.post("/register", CenterRegisterUser);
-router.post("/center/login", CenterLogin)
+router.post("/center/login", CenterLogin);
+
+
 export default router;

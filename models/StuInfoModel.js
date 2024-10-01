@@ -2,6 +2,10 @@ import { mongoose } from "mongoose";
 import validator from "validator";
 
 const StuInfoSchema = new mongoose.Schema({
+    course: {
+        type: String,
+        required: [true, "please specify your course"]
+    },
     Gender: {
         type: String,
         required: true,
